@@ -1,0 +1,14 @@
+.org-tree { display: flex; justify-content: center; padding: 10px 10px 30px; min-width: max-content; }
+.org-node { display: flex; flex-direction: column; align-items: center; position: relative; }
+.org-card { display: flex; gap: 10px; align-items: center; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; min-width: 200px; max-width: 230px; cursor: pointer; box-shadow: var(--shadow); transition: transform .2s; position: relative; z-index: 1; }
+.org-card:hover { transform: translateY(-3px); }
+.org-kids { display: flex; gap: 14px; padding-top: 28px; position: relative; }
+.org-kids::before { content: ''; position: absolute; top: 0; left: 50%; height: 14px; border-left: 2px solid var(--border); }
+.org-kids > .org-node::before { content: ''; position: absolute; top: -14px; left: 0; right: 0; border-top: 2px solid var(--border); }
+.org-kids > .org-node:first-child::before { left: 50%; } .org-kids > .org-node:last-child::before { right: 50%; }
+.org-kids > .org-node:only-child::before { display: none; }
+.org-kids > .org-node::after { content: ''; position: absolute; top: -14px; left: 50%; height: 14px; border-left: 2px solid var(--border); }
+.org-kids .org-kids { flex-direction: column; gap: 8px; padding-top: 18px; }
+.org-kids .org-kids::before { height: 18px; }
+.org-kids .org-kids > .org-node::before, .org-kids .org-kids > .org-node::after { display: none; }
+.org-kids .org-kids .org-card { min-width: 190px; box-shadow: none; }
